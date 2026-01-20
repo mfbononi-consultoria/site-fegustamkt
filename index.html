@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEGUSTA MKT | MFBONONI Consultoria</title>
+    <style>
+        /* --- ESTILOS VISUAIS (CSS) --- */
+        :root {
+            --primary: #003366; /* Azul Corporativo Sóbrio */
+            --secondary: #FF6600; /* Laranja Energético (Ação) */
+            --dark: #121212;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* TIPOGRAFIA */
+        h1, h2, h3 { font-weight: 700; color: var(--primary); }
+        .text-center { text-align: center; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER & NAV */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span { color: var(--secondary); }
+
+        /* SELETOR DE IDIOMAS */
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn {
+            border: 1px solid #ddd;
+            background: transparent;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(to right, #002244, #004080);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover { background: #e65c00; transform: translateY(-2px); }
+
+        /* PROFILE / FOUNDER SECTION */
+        .founder {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .founder-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .founder-text { flex: 1; min-width: 300px; }
+        
+        .founder-badge {
+            background: var(--white);
+            padding: 30px;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* SERVICES */
+        .services { padding: 80px 0; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .card:hover { border-color: var(--secondary); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+
+        /* CLIENTS / EXPERIENCE */
+        .experience {
+            background: var(--dark);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        .experience h2 { color: var(--white); margin-bottom: 30px; }
+        .highlight { color: var(--secondary); font-weight: bold; }
+
+        /* CONTACT */
+        .contact { padding: 80px 0; text-align: center; }
+        .contact-box {
+            background: var(--light);
+            display: inline-block;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .contact-item { margin: 15px 0; font-size: 1.2rem; }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            color: #555;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav { flex-direction: column; gap: 15px; height: auto; padding: 20px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color:var(--secondary); margin-right:5px;"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                    FEGUSTA <span>MKT</span>
+                </div>
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="changeLang('pt')">🇧🇷 PT</button>
+                    <button class="lang-btn" onclick="changeLang('es')">🇲🇽 ES</button>
+                    <button class="lang-btn" onclick="changeLang('en')">🇺🇸 EN</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 id="hero-title">Liderança em Marketing & Vendas para América Latina</h1>
+            <p id="hero-desc">Consultoria estratégica fundada por Marcos Bononi, aplicando mais de 20 anos de experiência em multinacionais para acelerar o seu negócio.</p>
+            <a href="#contact" class="btn" id="hero-btn">Agendar Consultoria</a>
+        </div>
+    </section>
+
+    <section class="founder">
+        <div class="container founder-content">
+            <div class="founder-text">
+                <h2 style="margin-bottom: 20px;" id="founder-title">A Experiência por trás da FEGUSTA MKT</h2>
+                <div class="founder-badge">
+                    <p id="founder-desc">
+                        Liderada por <strong>Marcos Bononi</strong>, executivo sênior com histórico comprovado na condução de crescimento e inovação em setores de FMCG, Eletrônicos e Entretenimento.
+                        <br><br>
+                        Com passagens de liderança na <strong>Hasbro, Viacom e NBC Universal</strong>, atualmente atua como Head de Marketing LATAM para a <strong>Bethesda Softworks</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title" id="services-title">Soluções Estratégicas</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 id="serv1-title">Go-to-Market LATAM</h3>
+                    <p id="serv1-desc">Definição e execução de estratégias de entrada e expansão em todos os países da América Latina, adaptando a marca à realidade local.</p>
+                </div>
+                <div class="card">
+                    <h3 id="serv2-title">Inteligência de Vendas</h3>
+                    <p id="serv2-desc">Gestão de portfólio (SKUs), estratégia de precificação e planejamento comercial focado em dados (Business Intelligence).</p>
+                </div>
+                <div class="card">
+                    <h3 id="serv3-title">Gestão de Marca & Licenciamento</h3>
+                    <p id="serv3-desc">Experiência profunda com marcas globais, gestão de licenciados e campanhas de marketing integradas (Online/Offline).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience">
+        <div class="container">
+            <h2 id="clients-title">Principais Projetos & Histórico</h2>
+            <p id="clients-desc" style="font-size: 1.2rem;">
+                Atualmente liderando a estratégia da <span class="highlight">Bethesda Softworks</span> na América Latina.
+                <br>
+                Histórico de sucesso com marcas como Transformers, Marvel, Play-Doh, Activision Blizzard, Ubisoft, Bob Esponja, Tartarugas Ninja entre outras.
+            </p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 id="contact-title">Vamos conversar sobre o seu negócio?</h2>
+            <div class="contact-box">
+                <div class="contact-item">
+                    📧 <strong>Email:</strong> <a href="mailto:marcos@mfbconsultoria.net" style="color:var(--primary); text-decoration: none;">marcos@mfbconsultoria.net</a>
+                </div>
+                <div class="contact-item">
+                    📱 <strong>WhatsApp:</strong> +55 (11) 99217-8245
+                </div>
+                <div class="contact-item">
+                    📍 <strong>Local:</strong> São Paulo, Brasil (Atendimento Global)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MFBONONI CONSULTORIA EM PUBLICIDADE. All Rights Reserved.</p>
+            <p style="opacity: 0.5; margin-top:5px;">FEGUSTA MKT é um nome fantasia de MFBONONI CONSULTORIA.</p>
+        </div>
+    </footer>
+
+    <script>
+        const i18n = {
+            pt: {
+                heroTitle: "Liderança em Marketing & Vendas para América Latina",
+                heroDesc: "Consultoria estratégica fundada por Marcos Bononi, aplicando mais de 20 anos de experiência em multinacionais para acelerar o seu negócio.",
+                heroBtn: "Agendar Consultoria",
+                founderTitle: "A Experiência por trás da FEGUSTA MKT",
+                founderDesc: "Liderada por <strong>Marcos Bononi</strong>, executivo sênior com histórico comprovado na condução de crescimento e inovação em setores de FMCG, Eletrônicos e Entretenimento.<br><br>Com passagens de liderança na <strong>Hasbro, Viacom e NBC Universal</strong>, atualmente atua como Head de Marketing LATAM para a <strong>Bethesda Softworks</strong>.",
+                servicesTitle: "Soluções Estratégicas",
+                serv1Title: "Go-to-Market LATAM",
+                serv1Desc: "Definição e execução de estratégias de entrada e expansão em todos os países da América Latina, adaptando a marca à realidade local.",
+                serv2Title: "Inteligência de Vendas",
+                serv2Desc: "Gestão de portfólio (SKUs), estratégia de precificação e planejamento comercial focado em dados (Business Intelligence).",
+                serv3Title: "Gestão de Marca & Licenciamento",
+                serv3Desc: "Experiência profunda com marcas globais, gestão de licenciados e campanhas de marketing integradas (Online/Offline).",
+                clientsTitle: "Principais Projetos & Histórico",
+                clientsDesc: "Atualmente liderando a estratégia da <span class='highlight'>Bethesda Softworks</span> na América Latina.<br>Histórico de sucesso com marcas como Rockstar, Activision, Ubisoft, Nickelodeon, NBC Universal e Hasbro.",
+                contactTitle: "Vamos conversar sobre o seu negócio?",
+                local: "São Paulo, Brasil (Atendimento Global)"
+            },
+            es: {
+                heroTitle: "Liderazgo en Marketing y Ventas para América Latina",
+                heroDesc: "Consultoría estratégica fundada por Marcos Bononi, aplicando más de 20 años de experiencia en multinacionales para acelerar su negocio.",
+                heroBtn: "Agendar Consultoría",
+                founderTitle: "La Experiencia detrás de FEGUSTA MKT",
+                founderDesc: "Liderada por <strong>Marcos Bononi</strong>, ejecutivo senior con historial comprobado en impulsar el crecimiento e innovación en sectores de FMCG, Electrónica y Entretenimiento.<br><br>Con roles de liderazgo en <strong>Hasbro, Viacom y NBC Universal</strong>, actualmente se desempeña como Head de Marketing LATAM para <strong>Bethesda Softworks</strong>.",
+                servicesTitle: "Soluciones Estratégicas",
+                serv1Title: "Go-to-Market LATAM",
+                serv1Desc: "Definición y ejecución de estrategias de entrada y expansión en todos los países de LATAM, adaptando la marca a la realidad local.",
+                serv2Title: "Inteligencia de Ventas",
+                serv2Desc: "Gestión de portafolio (SKUs), estrategia de precios y planificación comercial enfocada en datos (Business Intelligence).",
+                serv3Title: "Gestión de Marca y Licencias",
+                serv3Desc: "Experiencia profunda con marcas globales, gestión de licenciatarios y campañas de marketing integradas (Online/Offline).",
+                clientsTitle: "Proyectos Principales y Trayectoria",
+                clientsDesc: "Actualmente liderando la estrategia de <span class='highlight'>Bethesda Softworks</span> en América Latina.<br>Historial de éxito con marcas Transformers, Marvel, Play-Doh, Activision Blizzard, Ubisoft, Bob Esponja, Las Tortugas Ninja entre otros..",
+                contactTitle: "¿Hablamos sobre su negocio?",
+                local: "São Paulo, Brasil (Atención Global)"
+            },
+            en: {
+                heroTitle: "Marketing & Sales Leadership for Latin America",
+                heroDesc: "Strategic consultancy founded by Marcos Bononi, applying over 20 years of multinational experience to accelerate your business.",
+                heroBtn: "Schedule Consultation",
+                founderTitle: "The Experience Behind FEGUSTA MKT",
+                founderDesc: "Led by <strong>Marcos Bononi</strong>, a senior executive with a proven track record in driving growth and innovation across FMCG, Electronics, and Entertainment sectors.<br><br>With leadership roles at <strong>Hasbro, Viacom, and NBC Universal</strong>, currently serving as Head of Marketing LATAM for <strong>Bethesda Softworks</strong>.",
+                servicesTitle: "Strategic Solutions",
+                serv1Title: "Go-to-Market LATAM",
+                serv1Desc: "Definition and execution of entry and expansion strategies across all LATAM countries, adapting the brand to local realities.",
+                serv2Title: "Sales Intelligence",
+                serv2Desc: "Portfolio management (SKUs), pricing strategy, and data-focused commercial planning (Business Intelligence).",
+                serv3Title: "Brand Management & Licensing",
+                serv3Desc: "Deep experience with global brands, licensee management, and integrated marketing campaigns (Online/Offline).",
+                clientsTitle: "Key Projects & Track Record",
+                clientsDesc: "Currently leading the strategy for <span class='highlight'>Bethesda Softworks</span> in Latin America.<br>Track record of success with brands like Transformers, Marvel, Play-Doh, Activision Blizzard, Ubisoft, Spongebob Squarepants, Teenage Mutant Ninja Turtles among others...",
+                contactTitle: "Let's discuss your business?",
+                local: "São Paulo, Brazil (Global Service)"
+            }
+        };
+
+        function changeLang(lang) {
+            // Update Text
+            const textElements = {
+                'hero-title': 'heroTitle',
+                'hero-desc': 'heroDesc',
+                'hero-btn': 'heroBtn',
+                'founder-title': 'founderTitle',
+                'founder-desc': 'founderDesc',
+                'services-title': 'servicesTitle',
+                'serv1-title': 'serv1Title',
+                'serv1-desc': 'serv1Desc',
+                'serv2-title': 'serv2Title',
+                'serv2-desc': 'serv2Desc',
+                'serv3-title': 'serv3Title',
+                'serv3-desc': 'serv3Desc',
+                'clients-title': 'clientsTitle',
+                'clients-desc': 'clientsDesc',
+                'contact-title': 'contactTitle'
+            };
+
+            for (const [id, key] of Object.entries(textElements)) {
+                const element = document.getElementById(id);
+                if (element) element.innerHTML = i18n[lang][key];
+            }
+
+            // Update Active Button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.getAttribute('onclick').includes(lang)) btn.classList.add('active');
+            });
+        }
+    </script>
+</body>
+</html>
